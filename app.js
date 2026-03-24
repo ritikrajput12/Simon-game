@@ -5,6 +5,7 @@ let btns = ["yellow", "red", "purple", "green"];
 let started = false;
 let level = 0;
 let isPlaying = false;
+let allowRestart = true;
 
 let h2 = document.querySelector("h2");
 
@@ -16,8 +17,14 @@ let sounds = {
 };
 
 function startGame() {
-    if (!started) {
+    if (!started && allowRestart) {
         started = true;
+        allowRestart = false;
+
+        Object.values(sounds).forEach(s => {
+            s.play().then(() => s.pause()).catch(() => {});
+        });
+
         levelUp();
     }
 }
@@ -74,19 +81,21 @@ function checkAns(idx) {
             setTimeout(levelUp, 1000);
         }
     } else {
-        h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br>Tap or press key to restart`;
+        h2.innerHTML = `Game Over! Score: ${level} <br>Tap or press to restart`;
 
         document.body.style.backgroundColor = "red";
+
         setTimeout(() => {
             document.body.style.backgroundColor = "white";
-        }, 150);
+            allowRestart = true;
+        }, 300);
 
         reset();
     }
 }
 
 function btnPress() {
-    if (isPlaying) return;
+    if (isPlaying || !started) return;
 
     let btn = this;
     let userColor = btn.getAttribute("id");
