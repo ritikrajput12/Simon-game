@@ -17,7 +17,7 @@ With each level, the sequence gets longer and more challenging.
 
 ## How to play
 
-* Press any key to start the game
+* Press any key or tap anywhere to start the game
 * Watch the sequence of colors carefully
 * Click the buttons in the same order
 * Each level adds one new step
@@ -29,6 +29,7 @@ With each level, the sequence gets longer and more challenging.
 
 * Increasing difficulty with each level
 * Visual feedback using button animations
+* Sound effects for each button press
 * Game over screen with score
 * Works on desktop and mobile
 
@@ -52,12 +53,8 @@ With each level, the sequence gets longer and more challenging.
 
 ## Future improvements
 
-* Add sound effects
 * Add high score tracking
 * Improve UI design
+* Add better animations and effects
 
 ---
-
-## Author
-
-Ritik Rajput
